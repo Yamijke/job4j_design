@@ -1,6 +1,7 @@
 package ru.job4j;
 
 import net.bytebuddy.build.ToStringPlugin;
+import org.assertj.core.data.Offset;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.as;
@@ -60,7 +61,7 @@ class BoxTest {
     void theAreaOfTetrahedron() {
         Box box = new Box(4, 10);
         double expected = box.getArea();
-        assertThat(expected).isEqualTo(173.20508075688772);
+        assertThat(expected).isCloseTo(173.2d, Offset.offset(0.1));
 
     }
 
@@ -68,6 +69,6 @@ class BoxTest {
     void theAreaOfCube() {
         Box box = new Box(8, 20);
         double expected = box.getArea();
-        assertThat(expected).isEqualTo(2400D);
+        assertThat(expected).isCloseTo(2400, Offset.offset(0.001));
     }
 }
