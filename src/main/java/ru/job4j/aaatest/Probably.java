@@ -1,4 +1,4 @@
 package ru.job4j.aaatest;
 
-public class Aааtest {
+public class Probably {
 }
