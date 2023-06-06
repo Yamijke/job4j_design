@@ -20,7 +20,6 @@ public final class MemStore<T extends Base> implements Store<T> {
         return storage.containsKey(id) && storage.put(id, model) != null;
     }
 
-
     @Override
     public boolean delete(String id) {
         return storage.containsKey(id) && storage.remove(id) != null;
