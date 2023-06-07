@@ -1,4 +1,4 @@
-package ru.job4j.list.dinamic_massive;
+package ru.job4j.list.dinamicmassive;
 
 import static org.assertj.core.api.Assertions.*;
 

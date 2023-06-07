@@ -1,4 +1,4 @@
-package ru.job4j.list.dinamic_massive;
+package ru.job4j.list.dinamicmassive;
 
 import java.util.*;
 
@@ -69,7 +69,6 @@ public class SimpleArrayList<T> implements SimpleList<T> {
     public int size() {
         return size;
     }
-
 
     @Override
     public Iterator<T> iterator() {
