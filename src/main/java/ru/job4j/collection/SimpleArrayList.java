@@ -21,25 +21,21 @@ public class SimpleArrayList<T> implements SimpleList<T> {
         if (size >= container.length) {
             increaseArray();
         }
-        container[size] = value;
-        size++;
+        container[size++] = value;
         modCount++;
     }
 
     @Override
     public T set(int index, T newValue) {
-        if (index < size) {
+        Objects.checkIndex(index, size);
             T oldValue = container[index];
             container[index] = newValue;
             return oldValue;
-        } else {
-            throw new IndexOutOfBoundsException();
-        }
     }
 
     @Override
     public T remove(int index) {
-        if (index < size) {
+        Objects.checkIndex(index, size);
             T oldElement = container[index];
             System.arraycopy(
                     container,
@@ -51,9 +47,6 @@ public class SimpleArrayList<T> implements SimpleList<T> {
             size--;
             modCount++;
             return oldElement;
-        } else {
-            throw new IndexOutOfBoundsException();
-        }
     }
 
     @Override
