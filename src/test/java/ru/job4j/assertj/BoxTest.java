@@ -1,4 +1,4 @@
-package ru.job4j;
+package ru.job4j.assertj;
 
 import org.assertj.core.data.Offset;
 import org.junit.jupiter.api.Test;
