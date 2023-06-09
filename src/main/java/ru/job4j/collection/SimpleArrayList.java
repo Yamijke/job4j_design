@@ -51,11 +51,8 @@ public class SimpleArrayList<T> implements SimpleList<T> {
 
     @Override
     public T get(int index) {
-        if (index < size) {
+        Objects.checkIndex(index, size);
             return container[index];
-        } else {
-            throw new IndexOutOfBoundsException();
-        }
     }
 
     @Override
