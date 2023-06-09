@@ -1,10 +1,9 @@
 package ru.job4j;
 
-import net.bytebuddy.build.ToStringPlugin;
 import org.assertj.core.data.Offset;
 import org.junit.jupiter.api.Test;
+import ru.job4j.assertj.Box;
 
-import static org.assertj.core.api.Assertions.as;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class BoxTest {

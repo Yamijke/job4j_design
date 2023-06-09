@@ -2,6 +2,7 @@ package ru.job4j;
 
 import org.assertj.core.data.Index;
 import org.junit.jupiter.api.Test;
+import ru.job4j.assertj.SimpleConvert;
 
 import java.util.*;
 
