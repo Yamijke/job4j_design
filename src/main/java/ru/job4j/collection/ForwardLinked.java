@@ -41,6 +41,8 @@ public class ForwardLinked<T> implements Iterable<T> {
         }
         T deletedNode = node.item;
         head = node.next;
+        node.item = null;
+        node.next = null;
         size--;
         modCount++;
         return deletedNode;
@@ -64,9 +66,6 @@ public class ForwardLinked<T> implements Iterable<T> {
             public T next() {
                 if (!hasNext()) {
                     throw new NoSuchElementException();
-                }
-                if (expectedModCount != modCount) {
-                    throw new ConcurrentModificationException();
                 }
                 T value = currentNode.item;
                 currentNode = currentNode.next;
