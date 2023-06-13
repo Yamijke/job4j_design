@@ -29,7 +29,6 @@ public class SimpleLinkedList<E> implements LinkedList<E> {
         modCount++;
     }
 
-
     @Override
     public E get(int index) {
         Objects.checkIndex(index, size);
