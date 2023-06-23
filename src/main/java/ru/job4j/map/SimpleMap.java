@@ -33,7 +33,6 @@ public class SimpleMap<K, V> implements Map<K, V> {
         return rsl;
     }
 
-
     private int hash(int hashCode) {
         return hashCode ^ (hashCode >>> 16);
     }
