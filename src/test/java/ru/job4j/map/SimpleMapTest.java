@@ -163,14 +163,14 @@ class SimpleMapTest {
     void whenPutDuplicates() {
         SimpleMap<Integer, String> map = new SimpleMap<>();
         assertThat(map.put(1, "One")).isTrue();
-        assertThat(map.put(1, "Another One")).isFalse(); // Повторный ввод не допускается
+        assertThat(map.put(1, "Another One")).isFalse();
     }
 
     @Test
     void whenGetNotExistingKey() {
         SimpleMap<Integer, String> map = new SimpleMap<>();
         map.put(1, "One");
-        assertThat(map.get(2)).isNull(); // Значение для ключа 2 не было установлено
+        assertThat(map.get(2)).isNull();
     }
 
     @Test
@@ -178,14 +178,14 @@ class SimpleMapTest {
         SimpleMap<Integer, String> map = new SimpleMap<>();
         map.put(1, "One");
         map.remove(1);
-        assertThat(map.get(1)).isNull(); // Значение было удалено
+        assertThat(map.get(1)).isNull();
     }
 
     @Test
     void whenRemoveNotExistingKey() {
         SimpleMap<Integer, String> map = new SimpleMap<>();
         map.put(1, "One");
-        assertThat(map.remove(2)).isFalse(); // Значение для ключа 2 не было установлено
+        assertThat(map.remove(2)).isFalse();
     }
 
     @Test
@@ -193,7 +193,7 @@ class SimpleMapTest {
         SimpleMap<Integer, String> map = new SimpleMap<>();
         map.put(1, "One");
         map.remove(1);
-        assertThat(map.remove(1)).isFalse(); // Значение было удалено в предыдущем шаге
+        assertThat(map.remove(1)).isFalse();
     }
 
     @Test
