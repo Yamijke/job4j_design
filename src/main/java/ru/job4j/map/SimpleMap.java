@@ -17,13 +17,17 @@ public class SimpleMap<K, V> implements Map<K, V> {
 
     private MapEntry<K, V>[] table = new MapEntry[capacity];
 
+    private int findIndex(K key) {
+        return indexFor(hash(Objects.hashCode(key)));
+    }
+
     @Override
     public boolean put(K key, V value) {
         boolean rsl = false;
         if (count >= capacity * LOAD_FACTOR) {
             expand();
         }
-        int bucket = indexFor(hash(Objects.hashCode(key)));
+        int bucket = findIndex(key);
         if (table[bucket] == null) {
             table[bucket] = new MapEntry<>(key, value);
             count++;
@@ -46,7 +50,7 @@ public class SimpleMap<K, V> implements Map<K, V> {
         MapEntry<K, V>[] newMap = new MapEntry[capacity];
         for (MapEntry<K, V> map : table) {
             if (map != null) {
-                int bucket = indexFor(hash(Objects.hashCode(map.key)));
+                int bucket = findIndex(map.key);
                 newMap[bucket] = map;
             }
         }
@@ -56,9 +60,9 @@ public class SimpleMap<K, V> implements Map<K, V> {
     @Override
     public V get(K key) {
         V value = null;
-        int bucket = indexFor(hash(Objects.hashCode(key)));
+        int bucket = findIndex(key);
         MapEntry<K, V> map = table[bucket];
-        if (map != null && Objects.equals(map.key, key)) {
+        if (map != null && Objects.hashCode(map.key) == Objects.hashCode(key) && Objects.equals(map.key, key)) {
             value = map.value;
         }
         return value;
@@ -67,9 +71,9 @@ public class SimpleMap<K, V> implements Map<K, V> {
     @Override
     public boolean remove(K key) {
         boolean rsl = false;
-        int bucket = indexFor(hash(Objects.hashCode(key)));
+        int bucket = findIndex(key);
         MapEntry<K, V> map = table[bucket];
-        if (map != null && Objects.equals(map.key, key)) {
+        if (map != null && Objects.hashCode(map.key) == Objects.hashCode(key) && Objects.equals(map.key, key)) {
             table[bucket] = null;
             count--;
             modCount++;
