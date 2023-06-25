@@ -22,7 +22,6 @@ public class SimpleMap<K, V> implements Map<K, V> {
         return Objects.hashCode(key1) == Objects.hashCode(key2) && Objects.equals(key1, key2);
     }
 
-
     @Override
     public boolean put(K key, V value) {
         boolean rsl = false;
