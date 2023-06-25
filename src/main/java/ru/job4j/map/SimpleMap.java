@@ -1,9 +1,6 @@
 package ru.job4j.map;
 
-import java.util.ConcurrentModificationException;
-import java.util.Iterator;
-import java.util.NoSuchElementException;
-import java.util.Objects;
+import java.util.*;
 
 public class SimpleMap<K, V> implements Map<K, V> {
 
@@ -20,6 +17,11 @@ public class SimpleMap<K, V> implements Map<K, V> {
     private int findIndex(K key) {
         return indexFor(hash(Objects.hashCode(key)));
     }
+
+    private boolean check (K key1, K key2) {
+        return Objects.hashCode(key1) == Objects.hashCode(key2) && Objects.equals(key1, key2);
+    }
+
 
     @Override
     public boolean put(K key, V value) {
@@ -62,7 +64,7 @@ public class SimpleMap<K, V> implements Map<K, V> {
         V value = null;
         int bucket = findIndex(key);
         MapEntry<K, V> map = table[bucket];
-        if (map != null && Objects.hashCode(map.key) == Objects.hashCode(key) && Objects.equals(map.key, key)) {
+        if (map != null && check(map.key, key)) {
             value = map.value;
         }
         return value;
@@ -73,7 +75,7 @@ public class SimpleMap<K, V> implements Map<K, V> {
         boolean rsl = false;
         int bucket = findIndex(key);
         MapEntry<K, V> map = table[bucket];
-        if (map != null && Objects.hashCode(map.key) == Objects.hashCode(key) && Objects.equals(map.key, key)) {
+        if (map != null && check(map.key, key)) {
             table[bucket] = null;
             count--;
             modCount++;
