@@ -18,7 +18,7 @@ public class SimpleMap<K, V> implements Map<K, V> {
         return indexFor(hash(Objects.hashCode(key)));
     }
 
-    private boolean check (K key1, K key2) {
+    private boolean check(K key1, K key2) {
         return Objects.hashCode(key1) == Objects.hashCode(key2) && Objects.equals(key1, key2);
     }
 
