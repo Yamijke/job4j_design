@@ -18,12 +18,9 @@ public class LogFilter {
             String line;
             while ((line = in.readLine()) != null) {
                 String[] parts = line.split(" ");
-                try {
                     if (Integer.parseInt(parts[parts.length - 2]) == 404) {
                         res.add(line);
                     }
-                } catch (NumberFormatException e) {
-                }
             }
         } catch (IOException e) {
             e.printStackTrace();
