@@ -36,6 +36,6 @@ class ConfigTest {
         Config config = new Config(path);
         assertThatThrownBy(config::load)
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("Key or value isEmpty");
+                .hasMessageContaining("Broken template");
     }
 }

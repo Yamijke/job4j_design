@@ -20,15 +20,15 @@ public class Config {
         try (BufferedReader bur = new BufferedReader(new FileReader(path))) {
             String line;
             while ((line = bur.readLine()) != null) {
-                String[] parts = line.split("=", 2);
                 if (line.isEmpty() || line.startsWith("#")) {
                     continue;
                 }
+                String[] parts = line.split("=", 2);
+                if (parts.length < 2 || parts[0].isEmpty() || parts[1].isEmpty()) {
+                    throw new IllegalArgumentException("Broken template");
+                }
                     String key = parts[0];
                     String value = parts[1];
-                if (key.isEmpty() || value.isEmpty()) {
-                    throw new IllegalArgumentException("Key or value isEmpty");
-                }
                     values.put(key, value);
             }
         } catch (IOException e) {
