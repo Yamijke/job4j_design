@@ -15,11 +15,11 @@ public class Analysis {
                 String[] parts = line.split(" ");
                 String status = parts[0];
                 String time = parts[1];
-                if ((status.equals("400") || status.equals("500")) && !stat) {
+                if (("400".equals(status) || "500".equals(status)) && !stat) {
                     startTime = time;
                     stat = true;
-                } else if ((status.equals("200") || status.equals("300")) && stat) {
-                    print.println(startTime + ";" + time + ";");
+                } else if (("200".equals(status) || "300".equals(status)) && stat) {
+                    print.println(String.format("%s;%s;", startTime, time));
                     stat = false;
                 }
             }
