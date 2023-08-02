@@ -18,11 +18,7 @@ public class FilePropertySearch extends SimpleFileVisitor<Path> {
     public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
         BasicFileAttributes attributes = Files.readAttributes(file, BasicFileAttributes.class);
         FileProperty newProperty = new FileProperty(attributes.size(), file.getFileName().toString());
-        List<Path> paths = property.get(newProperty);
-        if (paths == null) {
-            paths = new ArrayList<>();
-            property.put(newProperty, paths);
-        }
+        List<Path> paths = property.computeIfAbsent(newProperty, k -> new ArrayList<>());
         paths.add(file);
         return FileVisitResult.CONTINUE;
     }
