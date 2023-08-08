@@ -1,11 +1,15 @@
-How are u doing ?
-I`ll not give you the answer.
-Whats ur name ?
+Hello, how are u doing ?
 I`ll not give you the answer.
 Can u repeat ?
-Repeat the question pls.
-стоп
-how are u ?
-продолжить
-Do u like meat ?
 I`ll not give you the answer.
+1 more time
+I`ll not give you the answer.
+tell me another answer
+I don`t know the answer for your question.
+стоп
+
+How are u ?
+продолжить
+How are u ?
+Repeat the question pls.
+закончить

@@ -41,6 +41,7 @@ public class ConsoleChat {
             }
             scan = scanner.nextLine();
         }
+        log.add(scan);
         saveLog(log);
     }
 
