@@ -28,11 +28,11 @@ public class ConsoleChat {
 
         List<String> phrases = readPhrases();
 
-        while (!scan.equals(OUT)) {
+        while (!OUT.equals(scan)) {
             log.add(scan);
-            if (scan.equals(STOP)) {
+            if (STOP.equals(scan)) {
                 stat = false;
-            } else if (scan.equals(CONTINUE)) {
+            } else if (CONTINUE.equals(scan)) {
                 stat = true;
             } else if (stat) {
                 String answer = getRandomPhrase(phrases);
