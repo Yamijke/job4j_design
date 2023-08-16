@@ -13,7 +13,8 @@ public class CSVReader {
 
         try (BufferedReader in = new BufferedReader(new FileReader(argsName.get("path")));
              PrintWriter print = !"stdout".equals(argsName.get("out"))
-                     ? new PrintWriter(new FileWriter(argsName.get("out"))) : null) {
+                     ? new PrintWriter(new FileWriter(argsName.get("out")))
+                     : new PrintWriter(System.out)) {
 
             String first = in.readLine();
             if (first != null) {
@@ -35,11 +36,7 @@ public class CSVReader {
             if (headerLine.length() > 0) {
                 headerLine.setLength(headerLine.length() - 1);
             }
-            if ("stdout".equals(argsName.get("out"))) {
-                System.out.println(headerLine);
-            } else if (print != null) {
-                print.println(headerLine);
-            }
+            print.println(headerLine);
 
             String line;
             while ((line = in.readLine()) != null) {
@@ -63,9 +60,8 @@ public class CSVReader {
 
                 if ("stdout".equals(argsName.get("out"))) {
                     System.out.println(outputLine);
-                } else if (print != null) {
-                    print.println(outputLine);
                 }
+                print.println(outputLine);
                 scanner.close();
             }
         } catch (IOException e) {
