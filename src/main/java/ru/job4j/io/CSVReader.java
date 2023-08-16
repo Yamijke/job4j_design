@@ -12,8 +12,8 @@ public class CSVReader {
         List<Integer> filterIndexes = new ArrayList<>();
 
         try (BufferedReader in = new BufferedReader(new FileReader(argsName.get("path")));
-             PrintWriter print = !"stdout".equals(argsName.get("out")) ?
-                     new PrintWriter(new FileWriter(argsName.get("out"))) : null) {
+             PrintWriter print = !"stdout".equals(argsName.get("out"))
+                     ? new PrintWriter(new FileWriter(argsName.get("out"))) : null) {
 
             String first = in.readLine();
             if (first != null) {
