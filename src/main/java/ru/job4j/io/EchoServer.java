@@ -19,8 +19,10 @@ public class EchoServer {
                         if ("Exit".equals(key)) {
                             server.close();
                         } else if ("Hello".equals(key)) {
+                            out.write("HTTP/1.1 200 OK\r\n\r\n".getBytes());
                             out.write("Hello, dear friend.".getBytes());
                         } else {
+                            out.write("HTTP/1.1 200 OK\r\n\r\n".getBytes());
                             out.write(key.getBytes());
                         }
 
