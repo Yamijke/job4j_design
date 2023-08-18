@@ -17,15 +17,15 @@ public class UsageLog4j {
         float fl = 1.25F;
         double dou = 7.62;
         boolean bo = false;
-        LOG.debug("User info name : {}, " +
-                        "age : {}, " +
-                        "hands : {}, " +
-                        "weight : {}, " +
-                        "ch : {}, " +
-                        "by : {}, " +
-                        "fl : {}, " +
-                        "dou : {}, " +
-                        "bo : {}",
+        LOG.debug("User info name : {}, "
+                        + "age : {}, "
+                        + "hands : {}, "
+                        + "weight : {}, "
+                        + "ch : {}, "
+                        + "by : {}, "
+                        + "fl : {}, "
+                        + "dou : {}, "
+                        + "bo : {}",
                         name, age, hands, weight, ch, by, fl, dou, bo);
     }
 }
