@@ -26,6 +26,6 @@ public class UsageLog4j {
                         "fl : {}, " +
                         "dou : {}, " +
                         "bo : {}",
-                name, age, hands, weight, ch, by, fl, dou, bo);
+                        name, age, hands, weight, ch, by, fl, dou, bo);
     }
 }
