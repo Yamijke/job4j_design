@@ -30,7 +30,6 @@ public class EchoServer {
                         } else {
                             out.write(key.getBytes());
                         }
-
                     }
                     out.flush();
                 } catch (IOException e) {
