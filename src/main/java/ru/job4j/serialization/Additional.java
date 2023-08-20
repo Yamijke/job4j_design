@@ -13,7 +13,7 @@ public class Additional {
     public String toString() {
         return "Additional{"
                 + "attachment='" + attachment + '\''
-                + ", bonus='" + bonus + '\'' +
-                '}';
+                + ", bonus='" + bonus + '\''
+                + '}';
     }
 }

@@ -21,7 +21,7 @@ public class Car {
                 + "old=" + old
                 + ", age=" + age
                 + ", additional=" + additional
-                + ", owners=" + Arrays.toString(owners) +
-                '}';
+                + ", owners=" + Arrays.toString(owners)
+                + '}';
     }
 }
