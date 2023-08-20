@@ -17,11 +17,11 @@ public class Car {
 
     @Override
     public String toString() {
-        return "Car{" +
-                "old=" + old +
-                ", age=" + age +
-                ", additional=" + additional +
-                ", owners=" + Arrays.toString(owners) +
+        return "Car{"
+                + "old=" + old
+                + ", age=" + age
+                + ", additional=" + additional
+                + ", owners=" + Arrays.toString(owners) +
                 '}';
     }
 }

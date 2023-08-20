@@ -11,9 +11,9 @@ public class Additional {
 
     @Override
     public String toString() {
-        return "Additional{" +
-                "attachment='" + attachment + '\'' +
-                ", bonus='" + bonus + '\'' +
+        return "Additional{"
+                + "attachment='" + attachment + '\''
+                + ", bonus='" + bonus + '\'' +
                 '}';
     }
 }
