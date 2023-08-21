@@ -1,0 +1,1 @@
+2023-08-19 11:40:44,849 DEBUG ru.job4j.io.UsageLog4j:main:20 - User info name : Petr Arsentev, age : 33, hands : 2, weight : 500, ch : a, by : 7, fl : 1.25, dou : 7.62, bo : false
