@@ -1,18 +1,28 @@
 package ru.job4j.serialization;
 
+import javax.xml.bind.annotation.*;
 import java.util.Arrays;
 
+@XmlRootElement(name = "car")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Car {
-    private final boolean old;
-    private final int age;
-    private final Additional additional;
-    private final String[] owners;
+    @XmlAttribute
+    private boolean old;
+    @XmlAttribute
+    private int age;
+    private Additional additional;
+    @XmlElementWrapper(name = "owners")
+    @XmlElement(name = "owner")
+    private String[] ownerses;
 
-    public Car(boolean old, int age, Additional additional, String[] owners) {
+    public Car() {
+    }
+
+    public Car(boolean old, int age, Additional additional, String... ownerses) {
         this.old = old;
         this.age = age;
         this.additional = additional;
-        this.owners = owners;
+        this.ownerses = ownerses;
     }
 
     @Override
@@ -21,7 +31,7 @@ public class Car {
                 + "old=" + old
                 + ", age=" + age
                 + ", additional=" + additional
-                + ", owners=" + Arrays.toString(owners)
+                + ", owners=" + Arrays.toString(ownerses)
                 + '}';
     }
 }

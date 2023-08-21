@@ -1,8 +1,15 @@
 package ru.job4j.serialization;
 
+import javax.xml.bind.annotation.*;
+
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Additional {
-    private final String attachment;
-    private final String bonus;
+    @XmlAttribute
+    private String attachment;
+    private String bonus;
+
+    public Additional() {
+    }
 
     public Additional(String attachment, String bonus) {
         this.attachment = attachment;
