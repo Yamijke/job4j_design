@@ -21,7 +21,6 @@ public class Jaxb {
         }
         Unmarshaller unmarshaller = context.createUnmarshaller();
         try (StringReader reader = new StringReader(xml)) {
-            /* десериализуем */
             Car result = (Car) unmarshaller.unmarshal(reader);
             System.out.println(result);
         }
