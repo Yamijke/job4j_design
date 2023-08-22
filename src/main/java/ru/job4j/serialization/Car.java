@@ -34,4 +34,20 @@ public class Car {
                 + ", owners=" + Arrays.toString(ownerses)
                 + '}';
     }
+
+    public boolean isOld() {
+        return old;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public Additional getAdditional() {
+        return additional;
+    }
+
+    public String[] getOwnerses() {
+        return ownerses;
+    }
 }
