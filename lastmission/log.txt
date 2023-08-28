@@ -1,0 +1,7 @@
+C:\Projects\job4j_design\lastmission\find.txt
+C:\Projects\job4j_design\lastmission\find1.txt
+C:\Projects\job4j_design\lastmission\find3.txt
+C:\Projects\job4j_design\lastmission\find4.txt
+C:\Projects\job4j_design\lastmission\log.txt
+C:\Projects\job4j_design\lastmission\log.txt.txt
+C:\Projects\job4j_design\lastmission\Новая папка\findhidden.txt
