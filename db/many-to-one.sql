@@ -1,25 +1,17 @@
-create table readers(
+create table author(
 	id serial primary key,
 	name varchar(255)
 );
 
 create table books(
 	id serial primary key,
-	title varchar(255)
+	title varchar(255),
+	author_id int references author(id)
 );
 
-create table readers_books(
-	id serial primary key,
-	readers_id int references readers(id),
-	books_id int references books(id)
-);
+insert into author(name) values('Alex');
+insert into books(title, author_id) VALUES('Fairy_tail', 1);
 
-insert into readers(name) values('Alex');
-insert into readers(name) values('Olga');
+select * from books;
 
-insert into books(title) VALUES('Fairy_tail');
-insert into books(title) VALUES('Horror');
-
-insert into readers_books(readers_id, books_id) values (1, 1);
-insert into readers_books(readers_id, books_id) values (1, 2);
-insert into readers_books(readers_id, books_id) values (2, 1);
+select * from author where id in (select author_id from books);
