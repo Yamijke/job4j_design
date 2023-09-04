@@ -27,9 +27,8 @@ select * from product where name like '%мороженое%';
 
 select * from product where expired_date < current_date;
 
-select name, max(price) as mx 
-from product 
-group by name;
+select name, price from product
+where price = (select max(price) from product);
 
 select t.name, count(pd.price) 
 from product as pd 
