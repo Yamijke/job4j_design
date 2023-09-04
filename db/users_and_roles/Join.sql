@@ -65,4 +65,4 @@ insert into teens (name, gender) values ('Vika', 'female');
 --используя cross join составляем все возможные разнополые пары
 select t1.name as a, t2.name as b
 from teens t1 cross join teens t2
-where t1.gender <> t2.gender;
+where t1.gender < t2.gender;
