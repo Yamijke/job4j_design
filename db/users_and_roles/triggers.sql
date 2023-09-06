@@ -17,22 +17,23 @@ insert into products (name, producer, count, price)
 /* Стейтмент триггер, срабатывающий после вставки данных для любого
 товара и просто насчитывает налог на товар
 */
-create trigger tax_trigger_state
-    after insert on products
-    for each statement
-    execute procedure tax();
-
 create or replace function tax()
     returns trigger as
 $$
     BEGIN
         update products
         set price = price * 1.2
-        where id = new.id;
+        where id = (select id from inserted);
         return new;
     END;
 $$
 LANGUAGE 'plpgsql';
+
+create trigger tax_trigger
+    after insert on products
+    referencing new table as inserted
+    for each statement
+    execute procedure tax();
 
 -- Роу триггер срабатывающий до вставки данных и насчитывающий налог на товар
 create or replace function taxes()
@@ -67,8 +68,8 @@ create or replace function history_of_prices_fnc()
 	returns trigger as
 	$$
 	begin
-		insert into "history_of_price" ("name", "price", "date")
-		values(NEW."name", NEW."price", current_date);
+		insert into history_of_price (name, price, date)
+		values(NEW.name, NEW.price, current_date);
 		return new;
 	end;
 	$$
@@ -76,6 +77,6 @@ create or replace function history_of_prices_fnc()
 	
 create trigger history_of_prices_trigger
 	after insert
-	on "products"
+	on products
 	for each row
 	execute procedure history_of_prices_fnc();
