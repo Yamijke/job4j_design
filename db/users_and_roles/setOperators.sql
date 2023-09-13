@@ -41,10 +41,10 @@ select name from movie;
 /* запрос "выведите все уникальные названия произведений из таблиц movie и book
 (т.е фильмы, которые сняты не по книге, и книги без экранизации)"
 */
-select name
-from
-	(select name as name from movie
-	union all
-	select title as name from book) as result
-group by name
-having count(*) = 1;
+select name from movie
+union
+select title from book
+except
+(select name from movie
+intersect
+select title from book);
