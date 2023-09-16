@@ -37,7 +37,7 @@ public class ImportDB {
         }
     }
 
-    private boolean isValid(String line) {
+    private void isValid(String line) {
         String[] parts = line.split(";", 2);
         if (parts.length < 2) {
             throw new IllegalArgumentException("Wrong template");
@@ -48,7 +48,6 @@ public class ImportDB {
         if (parts[1].isEmpty()) {
             throw new IllegalArgumentException("email is empty");
         }
-        return true;
     }
 
     public List<User> load() throws IOException {
@@ -56,11 +55,9 @@ public class ImportDB {
         try (BufferedReader rd = new BufferedReader(new FileReader(dump))) {
             String line;
             while ((line = rd.readLine()) != null) {
-                if (isValid(line)) {
-                    String[] parts = line.split(";", 2);
-                    users.add(new User(parts[0], parts[1]));
-                }
-
+                isValid(line);
+                String[] parts = line.split(";", 2);
+                users.add(new User(parts[0], parts[1]));
             }
         }
         return users;
